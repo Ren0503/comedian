@@ -1,6 +1,7 @@
 import mongoose, { Document } from 'mongoose';
 
 export interface Actor {
+    user: string;
     name: string;
     fullName: string;
     image: string;
