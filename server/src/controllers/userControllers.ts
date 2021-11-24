@@ -1,4 +1,4 @@
-import asyncHandler from '../middleware/asyncHandler';
+import asyncHandler from 'express-async-handler';
 import { User } from '../models';
 import { generateToken } from '../utils/generateToken';
 import { Request, Response } from '../types';

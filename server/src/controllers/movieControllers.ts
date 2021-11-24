@@ -1,4 +1,4 @@
-import asyncHandler from '../middleware/asyncHandler';
+import asyncHandler from 'express-async-handler';
 import { ActorDocument, Request, Response } from '../types';
 import { Movie } from '../models';
 
