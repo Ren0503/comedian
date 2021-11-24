@@ -50,7 +50,6 @@ const movieSchema = new mongoose.Schema({
     },
     actors: [{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Actor',
     }],
     reviews: [reviewSchema],
@@ -62,6 +61,14 @@ const movieSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    release: {
+        type: Date,
+        required: true,
+    },
+    times: {
+        type: Number,
+        required: true,
+    }
 }, {
     timestamps: true
 });

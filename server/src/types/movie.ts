@@ -14,6 +14,8 @@ export interface Movie {
     rating: number;
     numReviews: number;
     reviews: Review[];
+    release: Date;
+    times: number;
 }
 
 export interface Review {
