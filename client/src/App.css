@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.primary {
+  color: #FFC947;
+  background-color: #0A1931;
+}
+
+.secondary {
+  color: #EFEFEF;
+  background-color: #185ADB;
+}

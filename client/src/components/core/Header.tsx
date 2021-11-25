@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { logout } from 'actions';
 import { AppDispatch } from 'store';
 import { ReduxState } from 'types/ReduxState';
@@ -27,12 +27,12 @@ const Header = () => {
                         <>
                             <button type="button" className="mr-3 md:mr-0 bg-gray-800 flex text-sm rounded-full focus:ring-4 focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                                 <span className="sr-only">Open user menu</span>
-                                <img className="h-8 w-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" />
+                                <img className="h-8 w-8 rounded-full" src={userInfo.avatar} alt="user photo" />
                             </button>
                             {/* Dropdown menu */}
                             <div className="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
                                 <div className="px-4 py-3">
-                                    <span className="block text-sm">Bonnie Green</span>
+                                    <span className="block text-sm">{userInfo.name}</span>
                                 </div>
                                 <ul className="py-1" aria-labelledby="dropdown">
                                     <li>
