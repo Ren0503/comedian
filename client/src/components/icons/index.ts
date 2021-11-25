@@ -1,0 +1,11 @@
+export { ActorIcon } from './ActorIcon';
+export { AddIcon } from './AddIcon';
+export { DeleteIcon } from './DeleteIcon';
+export { EditIcon } from './EditIcon';
+export { HeartIcon } from './HeartIcon';
+export { HomeIcon } from './HomeIcon';
+export { MovieIcon } from './MovieIcon';
+export { SearchIcon } from './SearchIcon';
+export { StarIcon } from './StarIcon';
+export { UserIcon } from './UserIcon';
+export { ViewIcon } from './ViewIcon';
