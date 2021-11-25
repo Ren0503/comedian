@@ -8,28 +8,28 @@ export interface MovieUpdateState {
 }
 
 export enum MovieUpdateActionTypes {
-    Movies_UPDATE_REQUEST = 'Movies_UPDATE_REQUEST',
-    Movies_UPDATE_SUCCESS = 'Movies_UPDATE_SUCCESS',
-    Movies_UPDATE_FAILURE = 'Movies_UPDATE_FAILURE',
-    Movies_UPDATE_RESET = 'Movies_UPDATE_RESET'
+    MOVIE_UPDATE_REQUEST = 'MOVIE_UPDATE_REQUEST',
+    MOVIE_UPDATE_SUCCESS = 'MOVIE_UPDATE_SUCCESS',
+    MOVIE_UPDATE_FAILURE = 'MOVIE_UPDATE_FAILURE',
+    MOVIE_UPDATE_RESET = 'MOVIE_UPDATE_RESET'
 }
 
 export interface MovieUpdateRequestAction {
-    type: MovieUpdateActionTypes.Movies_UPDATE_REQUEST;
+    type: MovieUpdateActionTypes.MOVIE_UPDATE_REQUEST;
 }
 
 export interface MovieUpdateSuccessAction {
-    type: MovieUpdateActionTypes.Movies_UPDATE_SUCCESS;
+    type: MovieUpdateActionTypes.MOVIE_UPDATE_SUCCESS;
     payload: Movie;
 }
 
 export interface MovieUpdateFailureAction {
-    type: MovieUpdateActionTypes.Movies_UPDATE_FAILURE;
+    type: MovieUpdateActionTypes.MOVIE_UPDATE_FAILURE;
     payload: any;
 }
 
 export interface MovieUpdateResetAction {
-    type: MovieUpdateActionTypes.Movies_UPDATE_RESET;
+    type: MovieUpdateActionTypes.MOVIE_UPDATE_RESET;
 }
 
 export type MovieUpdateAction =
