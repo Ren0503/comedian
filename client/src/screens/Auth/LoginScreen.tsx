@@ -29,7 +29,7 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
     };
 
     return (
-        <div className="h-screen ư-full banner">
+        <div className="h-screen w-full banner">
             <div className="flex flex-col justify-center items-center h-screen">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

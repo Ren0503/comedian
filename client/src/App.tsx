@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Header />
-        <main className="py-3">
+        <main>
         <Route path='/login' component={LoginScreen} exact />
         <Route path='/register' component={RegisterScreen} exact />
         <Route path='/' component={HomeScreen} exact />

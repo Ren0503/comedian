@@ -1,108 +1,60 @@
 import React from 'react';
+import logo from 'assets/logo.png';
 
 const Footer = () => {
+    const FooterLinks = [
+        { id: 1, text: 'About Online Movie' },
+        { id: 2, text: 'Sign up to watch' },
+        { id: 3, text: 'Get Help' },
+        { id: 4, text: 'Ask any question' },
+        { id: 5, text: 'Watch Now' },
+        { id: 6, text: 'Contact' },
+        { id: 7, text: 'Facebook' },
+        { id: 8, text: 'Instagram' },
+        { id: 9, text: 'Twitter' },
+        { id: 10, text: 'Youtube' },
+    ];
+
     return (
-        <footer className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-                <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                    <a href="/" className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                        <i className="fas fa-cubes fa-lg text-purple-500" />
-                        <span className="ml-3 text-xl">Tailwind elements</span>
-                    </a>
-                    <p className="mt-2 text-sm text-gray-500">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi,
-                        quam?
-                    </p>
-                </div>
-                <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 ">
-                            CATEGORIES
-                        </h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">First Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Second Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Third Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                            </li>
-                        </nav>
+        <footer className="bg-gray-800 px-6 py-12">
+            <div className=" max-w-screen-xl mx-auto px-6">
+                <div className="flex pb-8">
+                    {/* logo  */}
+                    <div className="flex flex-grow">
+                        <img src={logo} alt="Logo"/>
                     </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                            CATEGORIES
-                        </h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">First Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Second Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Third Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                            </li>
-                        </nav>
-                    </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                            CATEGORIES
-                        </h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">First Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Second Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Third Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                            </li>
-                        </nav>
-                    </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                            CATEGORIES
-                        </h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">First Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Second Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Third Link</a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                            </li>
-                        </nav>
+                    {/* footer links  */}
+                    <div className="flex space-x-12">
+                        <div className="flex flex-col space-y-2">
+                            {FooterLinks.slice(0, 4).map(item => (
+                                <span className="text-white poppins" key={item.id}>{item.text}</span>
+                            ))}
+                        </div>
+                        <div className="flex flex-col space-y-2">
+                            {FooterLinks.slice(4, 8).map(item => (
+                                <span className="text-white poppins" key={item.id}>{item.text}</span>
+                            ))}
+                        </div>
+                        <div className="flex flex-col space-y-2">
+                            {FooterLinks.slice(8, 12).map(item => (
+                                <span className="text-white poppins" key={item.id}>{item.text}</span>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="bg-gray-100">
-                <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-                    <p className="text-gray-500 text-sm text-center sm:text-left">
-                        © 2021 Copyright:
-                        <a href="https://www.tailwind-elements.com/" className="text-gray-600 ml-1" target="_blank">Tailwind Elements</a>
-                    </p>
+                <div className="flex items-center pt-8">
+                    <div className="flex flex-grow">
+                        <span className="poppins text-gray-500">Developed by 💗 Ren0503</span>
+                    </div>
+
+                    <div className="flex justify-end items-center space-x-6">
+                        <span className="poppins text-white cursor-pointer">Privacy Policy</span>
+                        <span className="poppins text-white cursor-pointer">Terms of Use</span>
+                        <span className="poppins text-white cursor-pointer">Pricing</span>
+                    </div>
                 </div>
             </div>
         </footer>
-
     )
 }
 

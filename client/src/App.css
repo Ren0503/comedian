@@ -47,10 +47,10 @@
   background-color: #1B1B32;
 }
 
-.hero-pattern {
+.header-banner {
   background-image: url('assets/background.jpg');
   background-blend-mode: multiply;
-  background-color: #00000000;
+  background-color: #0A0A23b0;
   height: 600px !important;
   background-repeat: no-repeat;
   background-position: center;

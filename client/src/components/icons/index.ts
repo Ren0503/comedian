@@ -1,5 +1,6 @@
 export { ActorIcon } from './ActorIcon';
 export { AddIcon } from './AddIcon';
+export { BellIcon } from './BellIcon';
 export { DeleteIcon } from './DeleteIcon';
 export { EditIcon } from './EditIcon';
 export { HeartIcon } from './HeartIcon';

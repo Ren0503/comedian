@@ -33,14 +33,9 @@ const RegisterScreen = ({ location: { search }, history }: RegisterScreenProps) 
     };
 
     return (
-        <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
+        <div className="h-screen w-full banner">
+            <div className="flex flex-col justify-center items-center h-screen">
                 <div>
-                    <img
-                        className="mx-auto h-12 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                        alt="Workflow"
-                    />
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         Sign Up
                     </h2>
@@ -54,11 +49,12 @@ const RegisterScreen = ({ location: { search }, history }: RegisterScreenProps) 
                         </Link>
                     </p>
                     {error && <Message variant='danger'>{error}</Message>}
+                    {message && <Message variant='danger'>{message}</Message>}
                     {loading && <Loader />}
                 </div>
-                <form className="mt-8 space-y-6" onSubmit={submitHandler}>
+                <form className="bg-white w-96 mt-6 p-4 rounded-lg shadow-lg" onSubmit={submitHandler}>
                     <input type="hidden" name="remember" defaultValue="true" />
-                    <div className="rounded-md shadow-sm -space-y-px">
+                    <div className="flex flex-col space-y-6">
                         <div>
                             <label htmlFor="username" className="sr-only">
                                 Name
@@ -123,12 +119,12 @@ const RegisterScreen = ({ location: { search }, history }: RegisterScreenProps) 
                         </div>
                     </div>
 
-                    <div>
+                    <div className="py-3">
                         <button
                             type="submit"
                             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                            Sign in
+                            Sign Up
                         </button>
                     </div>
                 </form>
