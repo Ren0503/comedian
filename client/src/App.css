@@ -49,6 +49,8 @@
 
 .hero-pattern {
   background-image: url('assets/background.jpg');
+  background-blend-mode: multiply;
+  background-color: #00000000;
   height: 600px !important;
   background-repeat: no-repeat;
   background-position: center;
