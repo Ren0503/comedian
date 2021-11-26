@@ -73,7 +73,7 @@ export const createMovie = asyncHandler(
         }
 
         const movie = new Movie({
-            user: req.user._id,
+            user: req.user?._id,
             name,
             description,
             genres,
