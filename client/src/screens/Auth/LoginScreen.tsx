@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Form, Input, Button, Checkbox } from 'antd';
 
 import { login } from 'actions';
 import { AppDispatch } from 'store';
@@ -32,18 +33,6 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
         <div className="h-screen w-full banner">
             <div className="flex flex-col justify-center items-center h-screen">
                 <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                        Sign in
-                    </h2>
-                    <p className="mt-2 text-center text-sm text-gray-600">
-                        New Customer?{' '}
-                        <Link
-                            to={redirect ? `/register?redirect=${redirect}` : '/register'}
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                            Register
-                        </Link>
-                    </p>
                     {error && <Message variant='danger'>{error}</Message>}
                     {loading && <Loader />}
                 </div>

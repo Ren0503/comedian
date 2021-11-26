@@ -15,11 +15,7 @@ function App() {
       <Header />
         <main>
         <Route path='/login' component={LoginScreen} exact />
-        <Route path='/admin/user_list' component={UserListScreen} exact />
-        <Route path='/register' component={RegisterScreen} exact />
-        <Route path='/' component={HomeScreen} exact />
         </main>
-      <Footer />
     </Router>
   );
 }

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SearchIcon } from 'components/icons';
+import { Input, Space } from 'antd';
+
+const { Search } = Input;
 
 const SearchBox = () => {
     const [keyword, setKeyword] = useState<string>('');
@@ -25,6 +28,11 @@ const SearchBox = () => {
                 <button className="text-sm bg-primary py-3 px-6 rounded-full text-white poppins ring-red-300 focus:ring-4 transition duration-300 hover:scale-105 transform">
                     <SearchIcon />
                 </button>
+                <Search 
+                    placeholder="input search text" 
+                    onSearch={(e) => setKeyword(e.target.value)} 
+                    enterButton 
+                />
             </div>
         </form>
     );
