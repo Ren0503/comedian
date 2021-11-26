@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
@@ -9,14 +9,25 @@ import logo from 'assets/logo.png';
 
 const Header = () => {
     const history = useHistory();
+    const [changeHeader, setChangeHeader] = useState(false)
 
     const dispatch = useDispatch<AppDispatch>();
     const { userInfo } = useSelector((state: ReduxState) => state.userLogin);
 
     const logoutHandler = () => dispatch(logout(() => history.push('/')));
 
+    // Change header in scroll
+    const onChangeHeader = () => {
+        if (window.scrollY >= 50) {
+            setChangeHeader(true)
+        } else {
+            setChangeHeader(false)
+        }
+    }
+
+    window.addEventListener('scroll', onChangeHeader)
     return (
-        <nav className="bg-white border-gray-200 px-2">
+        <nav className={changeHeader ? "bg-white fixed z-50 top-0 left-0 w-full shadow-md transition duration-500" : "bg-transparent fixed z-50 top-0 left-0 w-full transition duration-500"}>
             <div className="container mx-auto flex flex-wrap items-center justify-between">
                 <a href="#" className="flex">
                     <img src={logo} alt="Logo" width="40" />

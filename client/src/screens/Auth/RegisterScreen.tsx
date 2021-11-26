@@ -2,21 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login } from 'actions';
+import { register } from 'actions';
 import { AppDispatch } from 'store';
 import { ReduxState } from 'types/ReduxState';
 import { Message, Loader } from 'components/shared';
 
-interface LoginScreenProps extends RouteComponentProps { }
+interface RegisterScreenProps extends RouteComponentProps { }
 
-const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
+const RegisterScreen = ({ location: { search }, history }: RegisterScreenProps) => {
+    const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [message, setMessage] = useState<string>();
     const redirect = search ? search.split('=')[1] : '/';
 
     const dispatch = useDispatch<AppDispatch>();
     const { userInfo, loading, error } = useSelector(
-        (state: ReduxState) => state.userLogin
+        (state: ReduxState) => state.userRegister
     );
 
     useEffect(() => {
@@ -25,7 +28,8 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(login(email, password));
+        if (password !== confirmPassword) setMessage('Password do not match');
+        else dispatch(register(name, email, password));
     };
 
     return (
@@ -38,15 +42,15 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
                         alt="Workflow"
                     />
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                        Sign in
+                        Sign Up
                     </h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
-                        New Customer?{' '}
+                        Have an Accounts?{' '}
                         <Link
-                            to={redirect ? `/register?redirect=${redirect}` : '/register'}
+                            to={redirect ? `/login?redirect=${redirect}` : '/login'}
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                         >
-                            Register
+                            Login
                         </Link>
                     </p>
                     {error && <Message variant='danger'>{error}</Message>}
@@ -55,6 +59,21 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
                 <form className="mt-8 space-y-6" onSubmit={submitHandler}>
                     <input type="hidden" name="remember" defaultValue="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
+                        <div>
+                            <label htmlFor="username" className="sr-only">
+                                Name
+                            </label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                required
+                                className="appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
                         <div>
                             <label htmlFor="email-address" className="sr-only">
                                 Email address
@@ -84,7 +103,22 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
                                 className="appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Password"
                                 value={password}
-						        onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="confirmPassword" className="sr-only">
+                                Confirm Password
+                            </label>
+                            <input
+                                id="confirmPassword"
+                                name="confirm-password"
+                                type="password"
+                                required
+                                className="appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Confirm Password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </div>
                     </div>
@@ -101,6 +135,6 @@ const LoginScreen = ({ location: { search }, history }: LoginScreenProps) => {
             </div>
         </div>
     )
-}
+};
 
-export default LoginScreen;
+export default RegisterScreen;
