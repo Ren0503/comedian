@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
+
 import { logout } from 'actions';
 import { AppDispatch } from 'store';
 import { ReduxState } from 'types/ReduxState';
@@ -8,30 +9,18 @@ import logo from 'assets/logo.png';
 
 const Header = () => {
     const history = useHistory();
-    const [changeHeader, setChangeHeader] = useState(false)
 
     const dispatch = useDispatch<AppDispatch>();
     const { userInfo } = useSelector((state: ReduxState) => state.userLogin);
 
     const logoutHandler = () => dispatch(logout(() => history.push('/')));
 
-    // Change header in scroll
-    const onChangeHeader = () => {
-        if (window.scrollY >= 50) {
-            setChangeHeader(true)
-        } else {
-            setChangeHeader(false)
-        }
-    }
-
-    window.addEventListener('scroll', onChangeHeader)
     return (
-        <nav className={changeHeader ? "bg-white fixed z-50 top-0 left-0 w-full shadow-md transition duration-500" : "bg-transparent fixed z-50 top-0 left-0 w-full transition duration-500"}>
-            <div className="container mx-auto flex flex-wrap items-center justify-between px-6 py-3">
-                <a href="#" className="flex">
+        <nav className="bg-white border-gray-200 px-2">
+            <div className="container mx-auto flex flex-wrap items-center justify-between">
+                <NavLink to="#" className="flex">
                     <img src={logo} alt="Logo" width="40" />
-                    <span className="self-center text-lg font-semibold whitespace-nowrap">Comedian</span>
-                </a>
+                </NavLink>
                 <div className="flex md:order-2">
                     {userInfo ? (
                         <>
@@ -42,11 +31,11 @@ const Header = () => {
                             {/* Dropdown menu */}
                             <div className="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
                                 <div className="px-4 py-3">
-                                    <span className="block text-sm">{userInfo.name}</span>
+                                    <span className="block text-sm">Bonnie Green</span>
                                 </div>
                                 <ul className="py-1" aria-labelledby="dropdown">
                                     <li>
-                                        <NavLink to="/profile" className="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</NavLink>
+                                        <NavLink to="#" className="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</NavLink>
                                     </li>
                                     <li>
                                         <button onClick={logoutHandler} className="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</button>
@@ -56,12 +45,8 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            <NavLink to="/login" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 mb-3">
-                                Login
-                            </NavLink>
-                            <NavLink to="/register" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 mb-3">
-                                Sign Up
-                            </NavLink>
+                            <NavLink to="/login" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 mb-3">Login</NavLink>
+                            <NavLink to="/register" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 mb-3">Sign Up</NavLink>
                         </>
                     )}
                     <button data-collapse-toggle="mobile-menu-2" type="button" className="md:hidden text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center" aria-controls="mobile-menu-2" aria-expanded="false">
